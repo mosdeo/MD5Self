@@ -1,0 +1,1 @@
+go build -ldflags "-w" && ./MD5Self
