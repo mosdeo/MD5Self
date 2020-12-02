@@ -10,16 +10,10 @@ import (
 
 func main() {
 	//取得路徑
-	path, err := os.Getwd()
-	if nil != err {
-		log.Fatal(err)
-	}
+	path, _ := os.Getwd()
 
 	//取得bin
-	selfbytes, err := ReadFileBin(path + (os.Args[0])[1:])
-	if nil != err {
-		log.Fatal(err)
-	}
+	selfbytes, _ := ReadFileBin(path + (os.Args[0])[1:])
 
 	//計算md5sum並輸出
 	fmt.Printf("%x\n", md5.Sum(selfbytes))
@@ -28,10 +22,7 @@ func main() {
 func ReadFileBin(filename string) ([]byte, error) {
 	var content []byte
 
-	file, err := os.Open(filename) // For read access.
-	if err != nil {
-		log.Fatal(err)
-	}
+	file, _ := os.Open(filename) // For read access.
 
 	for {
 		b := make([]byte, 100)
